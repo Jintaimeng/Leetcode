@@ -15,6 +15,7 @@ class Solution:
                     self.numLands(r, c)
         return self.res
 
+
     def isArea(self, x, y):
         return x >= 0 and x < self.row and y >= 0 and y < self.col
 
