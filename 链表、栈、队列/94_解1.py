@@ -1,3 +1,4 @@
+#递归方法
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -5,13 +6,13 @@ class TreeNode:
         self.right = right
 
 class Solution:
-    def preorder(self, root):
+    def inorder(self, root):
         if root is None:
             return
+        self.inorder(root.left)
         self.res.append(root.val)
-        self.preorder(root.left)
-        self.preorder(root.right)
-    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        self.inorder(root.right)
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         self.res = []
-        self.preorder(root)
+        self.inorder(root)
         return self.res
