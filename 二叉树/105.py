@@ -21,11 +21,11 @@ class Solution:
         if in_index <= 0:
             left_nodes = None
         else:
-            left_nodes = self.building(preorder[1: in_index+1], inorder[0: in_index])
+            left_nodes = self.building(preorder[1: in_index + 1], inorder[0: in_index])
         if len(inorder) - 1 - in_index <= 0:
             right_nodes = None
         else:
-            right_nodes = self.building(preorder[in_index + 1: ], inorder[in_index+1: ])
+            right_nodes = self.building(preorder[in_index + 1: ], inorder[in_index + 1: ])
         node = TreeNode(in_node, left_nodes, right_nodes)
         return node
 
