@@ -29,10 +29,10 @@ class Solution:
             if pl in q_parlist:
                 return pl
 
-        def getParents(self, node):
-            if node.left:
-                self.parents[node.left] = node
-                self.getParents(node.left)
-            if node.right:
-                self.parents[node.right] = node
-                self.getParents(node.right)
+    def getParents(self, node):
+        if node.left:
+            self.parents[node.left] = node
+            self.getParents(node.left)
+        if node.right:
+            self.parents[node.right] = node
+            self.getParents(node.right)
