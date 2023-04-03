@@ -9,7 +9,7 @@ class Solution:
         if len(self.temp) == k:
             self.res.append(self.temp[0: ])
             return
-        for i in range(start, n+1):
+        for i in range(start, n - (k - len(self.temp)) + 2):
             self.temp.append(i)
             self.combineT(n, k, i+1)
             self.temp.pop()
