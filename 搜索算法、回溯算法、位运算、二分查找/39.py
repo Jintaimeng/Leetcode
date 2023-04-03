@@ -2,9 +2,6 @@ class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         self.res = []
         self.temp = []
-        candidates.sort()
-        if candidates[0] > target:
-            return self.res
         self.combinationSum(candidates, target)
         self.res = [tuple(sorted(r)) for r in self.res]
         self.res = list(set(self.res))
