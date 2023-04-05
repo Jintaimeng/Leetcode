@@ -4,7 +4,7 @@ class Solution:
         self.dia1 = [False] * (2 * n - 1)
         self.dia2 = [False] * (2 * n - 1)
         self.n = n
-        self.queens = [] * n
+        self.queens = []
         self.res = []
         self.putQueens(0)
         return self.res
@@ -12,10 +12,11 @@ class Solution:
     def putQueens(self, row):
         if row == self.n:
             self.printRes(self.queens)
+            return
         else:
             for c in range(self.n):
                 if (not self.col[c]) and (not self.dia1[row+c]) and (not self.dia2[row-c+self.n-1]):
-                    self.queens.index(row, c)
+                    self.queens.append(c)
                     self.col[c] = True
                     self.dia1[row+c] = True
                     self.dia2[row-c+self.n-1] = True
@@ -26,7 +27,7 @@ class Solution:
                     self.queens.pop(row)
 
     def printRes(self, queens):
-        res1 = [] * self.n
+        res1 = []
         for q in range(len(queens)):
             strq = '.' * self.n
             strq = strq[:queens[q]] + 'Q' + strq[queens[q]+1:]
