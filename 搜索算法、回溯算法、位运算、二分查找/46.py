@@ -7,6 +7,7 @@ class Solution:
         self.used = [False for j in range(len(nums))]
         self.perm(0, [])
         return self.res
+
     def perm(self, index, p):
         if index == len(self.nums):
             pt = p[0:]
