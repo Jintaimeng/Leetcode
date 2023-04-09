@@ -10,7 +10,7 @@ class Solution:
 
     def subset(self, nums, k, start):
         if len(self.temp) == k:
-            self.res.append(self.temp[0: ])
+            self.res.append(self.temp[0:])
             return
         for i in range(start, len(nums) - (k - len(self.temp)) + 1):
             self.temp.append(nums[i])
