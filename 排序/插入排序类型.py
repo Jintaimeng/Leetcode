@@ -1,6 +1,5 @@
 n = int(input())
 dict = []
-
 for i in range(n):
     s, xi = input().split(" ")
     s = str(s)
