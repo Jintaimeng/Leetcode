@@ -3,10 +3,11 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
+
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        self.parents = {}
-        self.parents[root] = root
+        parents = {}
+        parents[root] = root
         self.getParents(root)
 
         p_parlist = []
@@ -36,3 +37,4 @@ class Solution:
         if node.right:
             self.parents[node.right] = node
             self.getParents(node.right)
+
