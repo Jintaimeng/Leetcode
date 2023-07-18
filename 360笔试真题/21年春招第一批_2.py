@@ -5,17 +5,15 @@ for i in range(N):
     temp1, temp2 = map(int, input().split(" "))
     kmList.append(temp1)
     money.append(temp2)
-memo = [0] * (K + 1)
-memo[0] = money[0]
-location = 0
-for k in range(1, K + 1):
-    nowMax = -1
-    nextIndex = location
-    for i in range(location + 1, M):
-        if kmList[i] - kmList[location] <= M and money[i] > nowMax:
-            nowMax = money[i]
-            nextIndex = i
-        else:
-            break
-    memo[k] = nowMax + memo[k-1]
-print(memo[K-1])
+memo = [[0 for _ in range(2)] for _ in range(N)]
+memo[N - 1][0] = money[N - 1]
+memo[N - 1][1] = K
+
+for i in range(N - 2, -1, -1):
+    for j in range(i + 1, N):
+        if kmList[j] - kmList[i] <= M:
+            if memo[i][0] <= memo[j][0] + money[i] and memo[j][1] > 0:
+                memo[i][0] = memo[j][0] + money[i]
+                memo[i][1] = memo[j][1] - 1
+
+print(memo[0][0])

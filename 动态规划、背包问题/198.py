@@ -7,5 +7,5 @@ class Solution:
         self.memo[self.n-1] = nums[self.n-1]
         for i in range(self.n-2, -1, -1):
             for j in range(i, self.n):
-                self.memo[i] = max(self.memo[i], nums[j] + (self.memo[j+2] if j+2 < n else 0))
-        return self.memo[0]    
+                self.memo[i] = max(self.memo[i], nums[j] + (self.memo[j+2] if j+2 < self.n else 0))
+        return self.memo[0]
