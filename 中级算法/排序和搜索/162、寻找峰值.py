@@ -32,5 +32,6 @@ def main():
     res = Solution().findPeakElement(nums)
     print(res)
 
+
 if __name__ == "__main__":
     main()
