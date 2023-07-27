@@ -33,5 +33,6 @@ def main():
     Solution().sortColors(nums)
     print(nums)
 
+
 if __name__ == "__main__":
     main()
