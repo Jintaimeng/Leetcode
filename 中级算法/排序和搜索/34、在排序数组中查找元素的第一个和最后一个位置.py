@@ -19,6 +19,7 @@ class Solution:
                 return [l, r]
         return [-1, -1]
 
+
 def main():
     nums = [5,7,7,8,8,10]
     target = 6
