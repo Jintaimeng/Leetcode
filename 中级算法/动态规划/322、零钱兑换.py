@@ -1,0 +1,26 @@
+import math
+from typing import List
+
+
+class Solution:
+    def coinChange(self, coins: List[int], amount: int) -> int:
+        memo = [math.inf] * (amount + 1)
+        memo[0] = 0
+        for i in range(len(coins)):
+            for j in range(coins[i], amount + 1):
+                if memo[j - coins[i]] != math.inf:
+                    memo[j] = min(memo[j - coins[i]] + 1, memo[j])
+        if memo[amount] == math.inf:
+            return -1
+        return memo[amount]
+
+
+def main():
+    coins = [1, 2, 5]
+    amount = 11
+    res = Solution().coinChange(coins, amount)
+    print(res)
+
+
+if __name__ == "__main__":
+    main()
