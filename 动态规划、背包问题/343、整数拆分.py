@@ -5,7 +5,7 @@ class Solution:
         memo[1] = 0
         memo[2] = 1
         for i in range(3, n + 1):
-            for j in range(1, n):
+            for j in range(1, n // 2 + 1):
                 memo[i] = max(j * (i - j), j * memo[i - j], memo[i])
         return memo[n]
 
