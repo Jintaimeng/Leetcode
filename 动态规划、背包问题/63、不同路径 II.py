@@ -5,6 +5,8 @@ class Solution:
     def uniquePathsWithObstacles(self, obstacleGrid: List[List[int]]) -> int:
         m = len(obstacleGrid)
         n = len(obstacleGrid[0])
+        if obstacleGrid[0][0] == 1 or obstacleGrid[m - 1][n - 1] == 1:
+            return 0
         memo = [[0 for _ in range(n)] for _ in range(m)]
         for i in range(m):
             if obstacleGrid[i][0] == 0:
