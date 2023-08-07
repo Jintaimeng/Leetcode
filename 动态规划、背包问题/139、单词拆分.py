@@ -12,12 +12,12 @@ class Solution:
         return memo[len(s)]
 
 
-
 def main():
     s = "leetcode"
     wordDict = ["leet", "code"]
     res = Solution().wordBreak(s, wordDict)
     print(res)
+
 
 if __name__ == "__main__":
     main()
