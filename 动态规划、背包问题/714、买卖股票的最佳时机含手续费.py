@@ -18,5 +18,6 @@ def main():
     res = Solution().maxProfit(prices, fee)
     print(res)
 
+
 if __name__ == "__main__":
     main()
