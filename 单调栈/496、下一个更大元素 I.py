@@ -21,5 +21,6 @@ def main():
     res = Solution().nextGreaterElement(nums1, nums2)
     print(res)
 
+
 if __name__ == "__main__":
     main()
