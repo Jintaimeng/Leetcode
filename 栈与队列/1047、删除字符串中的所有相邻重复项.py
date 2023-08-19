@@ -20,5 +20,6 @@ def main():
     res = Solution().removeDuplicates(s)
     print(res)
 
+
 if __name__ == "__main__":
     main()
