@@ -8,22 +8,21 @@ class TreeNode:
 
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        self.dict = {}
-        self.getParent(root, p, q)
-        pParent = self.dict[p]
-        qParent = self.dict[q]
-        while pParent != qParent:
-            pParent = self.dict[pParent]
-            qParent = self.dict[qParent]
-        return pParent
-
-    def getParent(self, node, p, q):
-        if node is None:
-            return
-        self.dict[node] = node
-        if node.left and (p.val < node.val or q.val < node.val):
-            self.dict[node.left] = node
-            self.getParent(node.left, p, q)
-        if node.right and (p.val > node.val or q.val > node.val):
-            self.dict[node.right] = node
-            self.getParent(node.right, p, q)
+        if root is None:
+            return None
+        if root == p or root == q:
+            return root
+        left = None
+        right = None
+        if p.val < root.val or q.val < root.val:
+            left = self.lowestCommonAncestor(root.left, p, q)
+        if p.val > root.val or q.val > root.val:
+            right = self.lowestCommonAncestor(root.right, p, q)
+        if left and right:
+            return root
+        elif left:
+            return left
+        elif right:
+            return right
+        else:
+            return None
